@@ -26,7 +26,6 @@ namespace TestAutomation.TestCases.ApiTestCases.PetStore
         }
 
         [Test]
-        [Ignore("exit")]
         public void TestGetPet()
         {
             var petRequest = new Pet
@@ -44,7 +43,6 @@ namespace TestAutomation.TestCases.ApiTestCases.PetStore
         }
 
         [Test]
-        [Ignore("exit")]
         public void TestGetPetBySoldStatus()
         {
             var petRequest = new Pet
