@@ -33,6 +33,7 @@ jobs:
         run: dotnet test --logger:"nunit;LogFileName=TestResults.xml" TestAutomation.TestCases/
         
       - uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: TestResult
           path: /TestAutomation.TestCases/TestResults/AutomationReport**.html
