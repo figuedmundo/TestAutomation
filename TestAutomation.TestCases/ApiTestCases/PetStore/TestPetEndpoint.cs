@@ -57,7 +57,7 @@ namespace TestAutomation.TestCases.ApiTestCases.PetStore
             var response = restHandler.Get<List<Pet>>($"pet/findByStatus?status={Status.Sold}");
 
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(response.Data.Find(p => p.Id == createPetResponse.Data.Id), Is.Not.Null);
+            Assert.That(response.Data.Find(p => p.Id == createPetResponse.Data.Id), Is.Not.Null, "Pet not found in the Pet Array list with sold status");
             Assert.That(response.Data.Find(p => p.Id == createPetResponse.Data.Id).Name, Is.EqualTo(petRequest.Name));
         }
     }

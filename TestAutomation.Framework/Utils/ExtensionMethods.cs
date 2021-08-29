@@ -99,7 +99,7 @@ namespace TestAutomation.Framework.Utils
 
             if (positionY + elementHeight > size.Height - 120)
             {
-                ScrollTo(0, positionY + elementHeight);
+                ScrollTo(0, positionY - 150);
                 SeleniumActions.Sleep();
             }
         }

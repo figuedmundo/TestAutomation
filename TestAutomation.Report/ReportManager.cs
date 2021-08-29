@@ -28,13 +28,14 @@ namespace TestAutomation.Report
             var path = Settings.ReportPath;
             string reportPath = !string.IsNullOrEmpty(path)
                 ? path
-                : Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+                : Path.Combine(AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin")), "TestResults");
 
-            Extent = new AventStack.ExtentReports.ExtentReports();
             Reporter = new ExtentV3HtmlReporter(Path.Combine(reportPath, $"AutomationReport{timeStamp}.html"));
-            Reporter.Config.DocumentTitle = "Automation Testing Report";
+            Reporter.Config.DocumentTitle = "Test Automation Report";
             Reporter.Config.ReportName = "Regression Testing";
             Reporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
+
+            Extent = new AventStack.ExtentReports.ExtentReports();
             Extent.AttachReporter(Reporter);
             Extent.AddSystemInfo("Application Under Test", "Test Automation");
             Extent.AddSystemInfo("Environment", "QA");
