@@ -10,6 +10,7 @@ namespace TestAutomation.TestCases.UiTestCasess.Demoqa
     public class BookStoreTestCases : DemoqaTest
     {
         [Test]
+        [Ignore("exit")]
         public void CreateUserNoPassword()
         {
             var first = StringUtils.RandomAlphaNumeric();
@@ -58,6 +59,7 @@ namespace TestAutomation.TestCases.UiTestCasess.Demoqa
         }
 
         [Test]
+        [Ignore("exit")]
         public void TestLoginUser()
         {
             var user = new UserData();
