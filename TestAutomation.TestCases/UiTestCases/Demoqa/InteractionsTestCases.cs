@@ -11,7 +11,6 @@ namespace TestAutomation.TestCases.UiTestCasess.Demoqa
     public class InteractionsTestCases : DemoqaTest
     {
         [Test]
-        [Ignore("exit")]
         public void TestListSortable()
         {
             var expectedList = new List<string>()

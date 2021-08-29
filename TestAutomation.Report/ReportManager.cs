@@ -13,14 +13,12 @@ namespace TestAutomation.Report
         public ExtentV3HtmlReporter Reporter { get; set; }
         public ExtentTest Test { get; set; }
         
-        private string timeStamp;
 
         private static ReportManager _instance;
         public static ReportManager Instance => _instance ??= new ReportManager();
 
         public ReportManager()
         {
-            //timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
         }
 
         public void Init()
@@ -30,7 +28,7 @@ namespace TestAutomation.Report
                 ? path
                 : Path.Combine(AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin")), "TestResults");
 
-            Reporter = new ExtentV3HtmlReporter(Path.Combine(reportPath, $"AutomationReport{timeStamp}.html"));
+            Reporter = new ExtentV3HtmlReporter(Path.Combine(reportPath, $"AutomationReport.html"));
             Reporter.Config.DocumentTitle = "Test Automation Report";
             Reporter.Config.ReportName = "Regression Testing";
             Reporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
