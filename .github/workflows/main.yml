@@ -1,0 +1,44 @@
+name: Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab   
+  workflow_dispatch:
+
+jobs:
+  automation-framework-test:
+    runs-on: ubuntu-latest
+    name: Run Automation Framework Test Cases
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101    
+
+      # restore dependencies  
+      - name: Install dependencies
+        run: dotnet restore
+
+      # Execute Test Cases
+      - name: Run Test Cases
+        run: dotnet test --logger:"nunit;LogFileName=TestResults.xml" .\TestAutomation.TestCases\
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: TestResult
+          path: TestAutomation.TestCases\TestResults\AutomationReport**.html
+          
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
