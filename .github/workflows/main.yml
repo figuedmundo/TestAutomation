@@ -30,12 +30,12 @@ jobs:
 
       # Execute Test Cases
       - name: Run Test Cases
-        run: dotnet test --logger:"nunit;LogFileName=TestResults.xml" .\TestAutomation.TestCases\
+        run: dotnet test --logger:"nunit;LogFileName=TestResults.xml" TestAutomation.TestCases/
         
       - uses: actions/upload-artifact@v2
         with:
           name: TestResult
-          path: TestAutomation.TestCases\TestResults\AutomationReport**.html
+          path: TestAutomation.TestCases/TestResults/AutomationReport**.html
           
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
