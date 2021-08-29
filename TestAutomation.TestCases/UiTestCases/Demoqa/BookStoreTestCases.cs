@@ -59,7 +59,6 @@ namespace TestAutomation.TestCases.UiTestCasess.Demoqa
         }
 
         [Test]
-        [Ignore("exit")]
         public void TestLoginUser()
         {
             var user = new UserData();

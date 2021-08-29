@@ -20,7 +20,7 @@ namespace TestAutomation.Report
 
         public ReportManager()
         {
-            timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
+            //timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
         }
 
         public void Init()
