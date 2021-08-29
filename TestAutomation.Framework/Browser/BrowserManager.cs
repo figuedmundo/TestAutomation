@@ -93,6 +93,11 @@ namespace TestAutomation.Framework.Browser
                     chromeOptions.AddArgument("--no-sandbox");
                     chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
 
+                    if (Settings.Headless)
+                    {
+                        chromeOptions.AddArgument("--headless");
+                    }
+
                     driver = new ChromeDriver(path, chromeOptions);
 
                     break;

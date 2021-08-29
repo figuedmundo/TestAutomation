@@ -25,9 +25,6 @@ namespace TestAutomation.Configuration
 
         public static string Browser => Config["Browser"];
         public static string ReportPath => Config["ReportPath"];
-        public static string AppUrl => Config["AppUrl"];
-        public static string ApiUrl => Config["ApiUrl"];
-        public static string ApiUser => Config["ApiUser"];
-        public static string ApiPassword => Config["ApiPassword"];
+        public static bool Headless => bool.Parse(Config["Headless"]);
     }
 }

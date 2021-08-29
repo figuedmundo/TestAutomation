@@ -10,7 +10,8 @@ namespace TestAutomation.Pages.Demoqa
     {
         public Button<LeftNavigationBar> Menu(string value)
         {
-            return new Button<LeftNavigationBar>(this, Locator.XPath, $"//li[contains(@class,'btn-light')][.//span[text()='{value}']]", value);
+            return new Button<LeftNavigationBar>(this, Locator.XPath, $"//li[contains(@class,'btn-light')][.//span[text()='{value}']]", value,
+                PostAction.PageLoadComplete, PostAction.Sleep);
         }
 
         public FromLeftNavigationBarTo GoTo => new FromLeftNavigationBarTo();
