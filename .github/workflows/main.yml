@@ -37,10 +37,12 @@ jobs:
         with:
           name: TestResult
           path: TestAutomation.TestCases/TestResults/AutomationReport.html
-          
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+
+    # Finally we upload the results to Calliope.
+      - name: Upload results to Calliope
         if: always()
-        run: |
-          echo Add other actions to build,
-          ls TestAutomation.TestCases/TestResults
+        run: curl -X POST
+             -H "x-api-key:${{ secrets.API_KEY }}"
+             -H "multipart/form-data"
+             -F "file[]=@TestAutomation.TestCases/TestResults/TestResults.xml"
+             "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/nunit?os=ubuntu&platform=Chrome"
