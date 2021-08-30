@@ -8,6 +8,24 @@ Automation Framework project for UI / API test automation using Selenium, RestSh
 
 **API Testing:** [PetStore](https://petstore.swagger.io/)
 
+## CI/CD
+
+The repository is integrated with a CI/CD github actions pipeline.
+
+1. Go to the repository Actions page https://github.com/figuedmundo/TestAutomation/actions
+2. In the workflows tree Click on Testing pipeline
+3. Click Run Workflow menu button 
+4. Click Run Workflow button
+
+This will trigger the action and the results can be reviewed in Calliope.Pro in the following address:
+
+  - https://app.calliope.pro/profiles/3587
+
+To enter to the dashboard you can use the following credentials
+
+  - email: tester.automation.framework@gmail.com
+  - password: Control123!
+
 ## Requirements
 
 * Chrome Browser
@@ -25,7 +43,7 @@ The configuration file is `appsettings.json`. It is located in **TestAutomation.
 }
 ```
 
-The Browser by default is Chrome and the ReportPath by default is the directory where the dlls are executed.
+The Browser by default is Chrome and the ReportPath by default is "TestAutomation.TestCases/TestResults/".
 To set up the Report Path make sure that the user has write privileges.
 
 ## Usage
@@ -50,6 +68,12 @@ $ dotnet build
 $ dotnet test TestAutomation.TestCases/TestAutomation.TestCases.csproj
 ```
 
-5. Open the **AutomationReport.html** from the path specified. (The path by default is *TestAutomation.TestCases/bin/Debug/netcoreapp3.1/AutomationReport.html*)
+5. Open the **AutomationReport.html** from the path specified. (The path by default is *TestAutomation.TestCases/TestResults/AutomationReport.html*)
 
 6. Enjoy!
+
+
+## Next Steps
+
+The next step for the framework would be implement BDD with the help of SpecFlow
+
